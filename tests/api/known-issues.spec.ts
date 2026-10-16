@@ -2,10 +2,6 @@ import { test, expect } from "../../src/fixtures";
 import { env } from "../../src/config";
 import { uniqueEmail } from "../../src/data/factory";
 
-// Each test asserts the CORRECT behaviour and is marked test.fail() while the
-// bug is open. When a fix ships, the test starts passing, Playwright reports
-// "expected to fail but passed", and the marker is removed. IDs match FINDINGS.md.
-
 test.describe("known issues (open defects)", () => {
   test("VDR-01 concurrent uploads with the same name must not create duplicates", async ({ owner, pdf }) => {
     test.fail(true, "VDR-01: name conflict check is not atomic, no unique index on (room, folder, nameLower)");

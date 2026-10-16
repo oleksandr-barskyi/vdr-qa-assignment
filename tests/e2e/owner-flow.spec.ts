@@ -69,6 +69,27 @@ test.describe("owner core flow", () => {
   });
 });
 
+test.describe("accessibility", () => {
+  test("KNOWN VDR-11: a folder can be opened with the keyboard", async ({ page, owner, loginAs }) => {
+    test.fail(true, "VDR-11: rows open on mouse click only, the name is not a link or button");
+    const name = uniqueName("Keyboard");
+    await owner.api.createFolder(owner.roomId, name);
+    await loginAs(page, owner);
+    await expect(page.getByRole("cell", { name, exact: true })).toBeVisible();
+    let reached = false;
+    for (let i = 0; i < 15 && !reached; i++) {
+      await page.keyboard.press("Tab");
+      reached = await page.evaluate((n) => {
+        const el = document.activeElement as HTMLElement | null;
+        return !!el && el.innerText?.trim() === n && !el.getAttribute("aria-label");
+      }, name);
+    }
+    expect(reached).toBe(true);
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/\/folder\//);
+  });
+});
+
 test.describe("auth UI", () => {
   test("unauthenticated visitor is sent to the login page", async ({ page }) => {
     await page.goto("/");
