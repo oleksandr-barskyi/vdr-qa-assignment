@@ -1,0 +1,17 @@
+{
+  "name": "vdr-qa-n5deal",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test --project=api",
+    "test:e2e": "playwright test --project=e2e",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^22.18.0",
+    "pdf-lib": "^1.17.1",
+    "typescript": "^5.9.3"
+  }
+}
