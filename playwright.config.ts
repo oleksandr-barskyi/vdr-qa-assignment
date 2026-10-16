@@ -23,5 +23,10 @@ export default defineConfig({
       retries: 1,
       use: { ...devices["Desktop Chrome"], baseURL: env.webUrl },
     },
+    {
+      name: "ux",
+      testDir: "./tests/ux",
+      use: { ...devices["Desktop Chrome"], baseURL: env.webUrl },
+    },
   ],
 });

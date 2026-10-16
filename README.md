@@ -7,6 +7,7 @@ Quality assessment of the [Virtual Data Room](https://github.com/evo9/virtual-da
 | [docs/QA_REPORT.md](docs/QA_REPORT.md) | **Start here.** Verdict on release readiness, what was tested, risks, coverage, next steps, AI usage |
 | [docs/FINDINGS.md](docs/FINDINGS.md) | 12 prioritised findings with steps, expected vs actual, root cause and suggested fix |
 | [docs/TEST_PLAN.md](docs/TEST_PLAN.md) | Scope, risk model, approach, test data strategy |
+| [docs/UX_REVIEW.md](docs/UX_REVIEW.md) | UI/UX pass with desktop and mobile screenshots: 7 findings, what works well |
 
 ## Testing approach in short
 
